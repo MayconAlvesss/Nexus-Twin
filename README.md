@@ -1,56 +1,69 @@
-# Nexus-Twin: Structural Health Engine API
+<p align="center">
+  <img src="https://img.icons8.com/wired/128/007ACC/server.png" width="80" />
+</p>
 
-**Structural simulation, anomaly detection, and ML forecasting service for digital twin infrastructure.**
+# <p align="center">Nexus-Twin</p>
+
+<p align="center">
+  <strong>High-Performance Backend for Structural Digital Twin Ecosystems.</strong><br>
+  Real-time health monitoring, anomaly detection, and ML-driven forecasting for smart infrastructure.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/API-FastAPI-007ACC?style=flat-square" />
+  <img src="https://img.shields.io/badge/ML-Scikit_Learn-007ACC?style=flat-square" />
+  <img src="https://img.shields.io/badge/Storage-Async_SQLite-007ACC?style=flat-square" />
+  <img src="https://img.shields.io/badge/Status-Production_Ready-444444?style=flat-square" />
+</p>
+
+---
+
+## ⚡ API Quick Start
+Nexus-Twin exposes a high-performance REST and WebSocket interface for managing structural assets on-site.
 
 ```bash
-# Get current cluster health status
-curl -X GET "http://localhost:8000/v1/status" \
-     -H "X-Nexus-API-Key: your_key"
-```
-
-## 📡 API Endpoints
-
-### Element Registry
-- `POST /v1/elements`: Register a physical BIM element for tracking.
-- `GET /v1/elements/{id}`: Retrieve current element snapshot and SHI.
-
-### Health & Analytics
-- `POST /v1/compute/health`: Process composite SHI from multi-channel sensor payloads (Strain, Vibration, Temp).
-- `POST /v1/compute/fatigue`: Calculate linear damage accumulation (Palmgren-Miner).
-- `POST /v1/detect/anomaly`: Execute two-layer detection (Z-Score + Isolation Forest).
-
-### Prediction & Forecasting
-- `GET /v1/forecast/{id}`: Predict SHI trajectory for T+7 days using Random Forest.
-
-## 📦 Data Schema (Sensor Ingestion)
-```json
-{
-  "element_id": "COL-10",
-  "data": {
-    "strain": 140.5,
-    "vibration": 0.05,
-    "temperature": 32.1
-  },
-  "timestamp": "2026-04-10T20:00:00Z"
-}
-```
-
-## 🏗️ Core Architecture
-1. **API Layer (`/api`)**: Async FastAPI implementation with Pydantic v2 validation.
-2. **Logic Layer (`/core`)**: Domain engines for structural math and anomaly pipelines.
-3. **Storage Layer (`/database`)**: Persistent `aiosqlite` history and element metadata.
-
-## 🚀 Quick Setup
-```bash
-# 1. Install
-pip install -r requirements.txt
-
-# 2. Configure
-cp .env.example .env
-
-# 3. Serve
-uvicorn api.main:app --host 0.0.0.0 --port 8000
+# Ingest sensor payload and compute Structural Health Index (SHI)
+curl -X POST "http://localhost:8000/api/v1/health/compute" \
+     -H "X-Nexus-API-Key: your_key" \
+     -d '{"element_id": "COL-A1", "data": {"strain": 120.5, "vibration": 0.05}}'
 ```
 
 ---
-*Nexus-Twin Framework | Systems & Architecture by Maycon Alves.*
+
+## 🧠 Core Engineering Components
+
+- **SHI Engine**: Computes a composite health score from multiple sensor channels.
+- **Fatigue Engine**: Linear damage accumulation (Palmgren-Miner) compliant with EN 1993-1-9.
+- **Two-Layer Anomaly Detection**:
+  1. **Z-Score**: High-frequency spike detection.
+  2. **Isolation Forest**: Multi-channel behavioral pattern recognition.
+- **ML Forecasting**: Random Forest regressor for predicting SHI trajectories (T+7 days).
+
+## 🏗️ Internal Roadmap
+
+### 1. The API Layer (`/api`)
+Built on **FastAPI (Python 3.12)** for asynchronous data ingestion and Pydantic v2 validation.
+
+### 2. The Logic Layer (`/core`)
+Domain-specific engines that decouple structural math from I/O operations.
+
+### 3. Telemetry Lab (`/lab`)
+- **`test_ws_client.py`**: A sandbox for testing real-time WebSocket telemetry streams.
+
+---
+
+## 🚀 Deployment
+
+```bash
+# 1. Setup
+pip install -r requirements.txt
+copy .env.example .env
+
+# 2. Start
+python -m uvicorn api.main:app --port 8000 --reload
+```
+
+---
+<p align="center">
+  <i>Part of the <b>Nexus-Twin</b> Ecosystem | Engineering Strategy by <b>Maycon Alves</b></i>
+</p>
