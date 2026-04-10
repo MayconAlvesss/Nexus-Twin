@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Platforms>x64</Platforms>
+    <Configurations>Debug;Release</Configurations>
+    <Version>1.0.0</Version>
+    <AssemblyName>NexusTwin.Revit</AssemblyName>
+    <RootNamespace>NexusTwin.Revit</RootNamespace>
+  </PropertyGroup>
+
+  <!-- Revit API References (Usually local DLLs, but mock for the repo) -->
+  <ItemGroup>
+    <PackageReference Include="Revit.RevitApi.x64" Version="2025.0.0" PrivateAssets="All" />
+    <PackageReference Include="Revit.RevitApiUI.x64" Version="2025.0.0" PrivateAssets="All" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+</Project>
