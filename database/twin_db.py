@@ -181,9 +181,21 @@ class TwinDBManager:
         return dict(row) if row else None
 
     async def list_elements(self) -> list[dict]:
-        """Return all registered elements ordered by creation date."""
+        """
+        Return all registered elements with their latest SHI status.
+        Uses a LEFT JOIN to get the status in a single query for performance.
+        """
         cursor = await self._conn.execute(  # type: ignore[union-attr]
-            "SELECT * FROM elements ORDER BY created_at DESC"
+            """
+            SELECT e.*, s.status as latest_status, s.shi_score as latest_shi_score
+            FROM elements e
+            LEFT JOIN (
+                SELECT element_id, status, shi_score,
+                       ROW_NUMBER() OVER (PARTITION BY element_id ORDER BY recorded_at DESC) as rn
+                FROM shi_history
+            ) s ON e.element_id = s.element_id AND s.rn = 1
+            ORDER BY e.created_at DESC
+            """
         )
         rows = await cursor.fetchall()
         return [dict(r) for r in rows]

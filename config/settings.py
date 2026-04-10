@@ -21,7 +21,11 @@ class Settings(BaseSettings):
     NEXUS_HEALTH_CRITICAL_THRESHOLD: float = 40.0
 
     # --- CORS ---
-    NEXUS_ALLOWED_ORIGINS: str = "http://localhost:5500,http://localhost:3000"
+    NEXUS_ALLOWED_ORIGINS: str = (
+        "http://localhost:5173,http://localhost:5174,"
+        "http://127.0.0.1:5173,http://127.0.0.1:5174,"
+        "http://localhost:3000,http://localhost:5500"
+    )
 
     # --- Database ---
     NEXUS_DB_PATH: str = "nexustwin.db"
