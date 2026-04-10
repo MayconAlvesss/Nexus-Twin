@@ -1,0 +1,41 @@
+# ============================================================
+# Git ignore rules for NexusTwin
+# ============================================================
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Python bytecode cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Environment files — never commit secrets
+.env
+
+# Database file — runtime artifact, not source code
+*.db
+*.sqlite3
+
+# PDF reports generated at runtime
+lab/reports/outputs/
+reporting/outputs/
+
+# ML model artifacts (serialised with joblib/pickle)
+ml/models/*.joblib
+ml/models/*.pkl
+
+# IDE configs
+.vscode/
+.idea/
+*.DS_Store
+
+# Build artefacts
+dist/
+build/
+*.egg-info/
+
+# pytest cache
+.pytest_cache/

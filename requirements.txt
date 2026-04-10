@@ -1,0 +1,40 @@
+# ============================================================
+# NexusTwin — Python Dependencies
+# ============================================================
+
+# --- API Framework ---
+fastapi>=0.109.0
+uvicorn>=0.27.0
+
+# --- Data Validation & Settings ---
+pydantic>=2.5.3
+pydantic-settings>=2.1.0
+
+# --- Data Processing & Mathematics ---
+pandas>=2.2.0
+numpy>=1.26.3
+scipy>=1.12.0
+
+# --- Machine Learning ---
+scikit-learn>=1.4.0
+
+# --- Async Database ---
+aiosqlite>=0.19.0
+
+# --- BIM / IFC Parsing ---
+# ifcopenshell is installed separately from conda or a binary wheel.
+# If you can't install it, the sensor_simulator fills in for demo purposes.
+# ifcopenshell>=0.7.0  # uncomment if you have a compatible wheel
+
+# --- External Connections & Async HTTP ---
+aiohttp>=3.9.1
+httpx>=0.26.0
+
+# --- Report Generation ---
+reportlab>=4.1.0
+matplotlib>=3.8.2
+
+# --- Testing & Quality ---
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+httpx>=0.26.0   # needed by fastapi TestClient
