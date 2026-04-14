@@ -1,5 +1,7 @@
 # NexusTwin 🏗️ — Structural Digital Twin Engine
 
+> **Status:** Concept (2028+)
+
 > **Real-time structural health monitoring, fatigue analysis, two-layer anomaly detection, and ML SHI forecasting for BIM-connected buildings.**  
 
 ---
@@ -267,3 +269,4 @@ See internal documentation for specific licensing terms.
   <br>
   <a href="https://github.com/MayconAlvesss" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/maycon-alves-a5b9402bb/" target="_blank">LinkedIn</a>
 </div>
+
