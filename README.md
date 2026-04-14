@@ -1,6 +1,11 @@
 # NexusTwin 🏗️ — Structural Digital Twin Engine
 
-> **Status:** Concept (2028+)
+> [!IMPORTANT]
+> **Project Status: Concept / Scaffold (2028+)**
+> This repository is part of Maycon Alves' technical vision for the AEC Tech ecosystem. It is currently in the **concept and initial architecture phase**. Full development and core implementation will resume after the author returns from his mission in **2028**.
+
+
+
 
 > **Real-time structural health monitoring, fatigue analysis, two-layer anomaly detection, and ML SHI forecasting for BIM-connected buildings.**  
 
